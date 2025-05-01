@@ -1,0 +1,99 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 7%;
+    --foreground: 0 0% 98%;
+
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 151 100% 60%;
+    --primary-foreground: 240 5.9% 10%;
+
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-terminal-background text-terminal-foreground font-mono;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono;
+  }
+  
+  a {
+    @apply text-terminal-accent hover:text-terminal-accent-alt transition-colors duration-200;
+  }
+}
+
+@layer components {
+  .terminal-container {
+    @apply relative bg-[#1E1E1E] font-mono text-sm leading-normal overflow-hidden;
+  }
+  
+  .terminal-header {
+    @apply sticky top-0 z-50 backdrop-blur-lg bg-[#2D2D2D]/90 border-b border-terminal-accent/20;
+  }
+  
+  .typewriter-effect {
+    @apply relative overflow-hidden whitespace-pre font-mono;
+  }
+  
+  .typewriter-effect::after {
+    content: '';
+    @apply absolute top-0 right-0 w-full h-full bg-terminal-background;
+    animation: typewriter 2.5s steps(40, end) forwards;
+  }
+  
+  .blinking-cursor::after {
+    content: '>';
+    @apply ml-1 animate-blink text-terminal-accent;
+  }
+  
+  .menu-item {
+    @apply relative block pl-4 py-2 mb-1 text-terminal-foreground opacity-80 hover:opacity-100 hover:text-terminal-accent transition-all duration-200;
+  }
+  
+  .menu-item::before {
+    content: '>';
+    @apply absolute left-0 text-terminal-accent opacity-0 transition-opacity duration-200;
+  }
+  
+  .menu-item:hover::before {
+    @apply opacity-100;
+  }
+  
+  .animated-bg {
+    @apply before:absolute before:inset-0 before:bg-gradient-to-r before:from-terminal-accent/5 before:to-terminal-accent-alt/5 before:opacity-10 before:animate-pulse;
+  }
+}
