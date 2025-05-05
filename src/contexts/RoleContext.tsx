@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, ReactNode } from 'react';
 
 // Define available roles
-export type Role = 'sde' | 'fse' | null;
+export type Role = 'sde' | 'fse' | 'bi' | 'da' | 'ad' | null;
 
 interface RoleContextType {
   currentRole: Role;

@@ -10,15 +10,16 @@ const RoleIndex = () => {
   const [showSubtitle, setShowSubtitle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
   const { currentRole } = useRole();
-  const { role } = useParams<{ role: "sde" | "fse" }>();
+  const { role } = useParams<{ role: "sde" | "fse" | "bi" | "da" | "ad" }>();
 
   // Use the role from URL params or fallback to context
-  const activeRole = (role as "sde" | "fse") || currentRole || "sde";
+  const activeRole = (role as "sde" | "fse" | "bi" | "da" | "ad") || currentRole || "sde";
   const roleInfo = roleConfig[activeRole];
 
   const menuItems = [
     { label: "experience", path: `/${activeRole}/experience`, delay: 100 },
     { label: "projects", path: `/${activeRole}/projects`, delay: 300 },
+    { label: "articles", path: `/${activeRole}/articles`, delay: 400 },
     { label: "contact", path: `/${activeRole}/contact`, delay: 500 },
   ];
 

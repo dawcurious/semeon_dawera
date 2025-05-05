@@ -8,20 +8,20 @@ const Index = () => {
   const [showTitle, setShowTitle] = useState(false);
   const [showSubtitle, setShowSubtitle] = useState(false);
   const [showMenu, setShowMenu] = useState(false);
-  const [showRoles, setShowRoles] = useState(false);
 
   const menuItems = [
     { label: "experience", path: "/experience", delay: 100 },
     { label: "projects", path: "/projects", delay: 300 },
+    { label: "articles", path: "/articles", delay: 400 },
     { label: "contact", path: "/contact", delay: 500 },
   ];
 
   const roleItems = [
     { label: "senior data engineer", path: "/sde", delay: 100 },
-    { label: "full stack software engineer", path: "/fse", delay: 300 },
-    { label: "data analyst", path: "/da", delay: 100 },
-    { label: "data architect", path: "/ad", delay: 100 },
-    { label: "business intelligence analyst", path: "/bia", delay: 100 },
+    { label: "full stack web engineer", path: "/fse", delay: 200 },
+    { label: "bi engineer", path: "/bi", delay: 300 },
+    { label: "data analyst", path: "/da", delay: 400 },
+    { label: "data architect", path: "/ad", delay: 500 },
   ];
 
   useEffect(() => {
@@ -98,7 +98,6 @@ const Index = () => {
                           typingDelay={50}
                           onComplete={() => {
                             setShowMenu(true);
-                            setTimeout(() => setShowRoles(true), 1000);
                           }}
                         />
                       </h2>
@@ -114,15 +113,6 @@ const Index = () => {
                     <TerminalMenu items={menuItems} />
                   </div>
                 )}
-
-                {/* {showRoles && (
-                  <div className="mt-12 animate-fadeIn">
-                    <p className="text-terminal-accent text-sm mb-2">
-                      $ roles --list
-                    </p>
-                    <TerminalMenu items={roleItems} />
-                  </div>
-                )} */}
               </div>
             </div>
           </div>
