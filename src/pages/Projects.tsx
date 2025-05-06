@@ -1,7 +1,8 @@
+
 import { useState, useEffect } from "react";
 import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 const Projects = () => {
   const [showContent, setShowContent] = useState(false);
@@ -107,15 +108,19 @@ const Projects = () => {
                   <div className="flex space-x-4 mt-auto pt-2">
                     <a 
                       href={project.link}
-                      className="text-terminal-accent hover:text-terminal-accent-alt flex items-center text-sm"
+                      className="text-terminal-accent relative group overflow-hidden inline-flex items-center text-sm"
                     >
-                      <ExternalLink size={14} className="mr-1" /> Demo
+                      <span className="pr-6 relative z-10 group-hover:translate-x-[-2px] transition-transform">Demo</span>
+                      <span className="absolute inset-0 z-0 bg-terminal-accent/10 scale-x-0 origin-left group-hover:scale-x-100 transition-transform"></span>
+                      <ExternalLink size={14} className="absolute right-1 z-10 group-hover:translate-x-1 transition-transform" />
                     </a>
                     <a 
                       href={project.repo}
-                      className="text-terminal-accent hover:text-terminal-accent-alt flex items-center text-sm"
+                      className="text-terminal-accent relative group overflow-hidden inline-flex items-center text-sm"
                     >
-                      <Github size={14} className="mr-1" /> Code
+                      <span className="pr-6 relative z-10 group-hover:translate-x-[-2px] transition-transform">Code</span>
+                      <span className="absolute inset-0 z-0 bg-terminal-accent/10 scale-x-0 origin-left group-hover:scale-x-100 transition-transform"></span>
+                      <Github size={14} className="absolute right-1 z-10 group-hover:translate-x-1 transition-transform" />
                     </a>
                   </div>
                 </div>
@@ -123,8 +128,9 @@ const Projects = () => {
             </div>
             
             <div className="mt-8 pt-4 border-t border-terminal-accent/20 text-center">
-              <p className="text-terminal-muted text-sm">
-                Run 'project --detail [name]' for more information
+              <p className="text-terminal-muted text-sm relative inline-block group cursor-pointer">
+                <span className="text-terminal-accent-alt pr-5">Run 'project --detail [name]' for more information</span>
+                <ArrowUpRight size={14} className="inline-block ml-1 text-terminal-accent-alt absolute top-1 opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
               </p>
             </div>
           </div>

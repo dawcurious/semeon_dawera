@@ -1,12 +1,11 @@
 import { useState, useEffect } from "react";
 import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
-import { Calendar, Clock, Tag, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Calendar, Clock, Tag } from "lucide-react";
 
 const Articles = () => {
   const [showContent, setShowContent] = useState(false);
-
+  
   // Sample articles data
   const articles = [
     {
@@ -47,14 +46,14 @@ const Articles = () => {
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 500);
-
+    
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-terminal-background text-terminal-foreground">
       <TerminalHeader />
-
+      
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="w-full max-w-4xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
@@ -71,16 +70,10 @@ const Articles = () => {
             </div>
 
             <div className="terminal-container p-6 md:p-8">
-              {/* Back Button */}
-              <Link to="/" className="inline-flex items-center text-terminal-accent hover:text-terminal-accent-alt mb-6">
-                <ArrowLeft size={16} className="mr-2" />
-                Back to Home
-              </Link>
-
               <div className="mb-8">
                 <h1 className="text-3xl font-bold text-terminal-accent mb-2">
-                  <TerminalPrompt
-                    text="$ cat articles.md"
+                  <TerminalPrompt 
+                    text="$ cat articles.md" 
                     className="text-terminal-accent-alt text-lg mb-3"
                   />
                   <div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
@@ -91,10 +84,10 @@ const Articles = () => {
                   Thoughts, tutorials, and technical deep dives
                 </p>
               </div>
-
+              
               <div className="space-y-8 mt-10">
                 {showContent && articles.map((article, index) => (
-                  <div
+                  <div 
                     key={index}
                     className="border-l-2 border-terminal-accent pl-4 py-2 transition-all duration-500 animate-fadeIn hover:bg-terminal-background/30"
                     style={{ animationDelay: `${index * 150}ms` }}
@@ -118,8 +111,8 @@ const Articles = () => {
                       </p>
                       <div className="flex flex-wrap gap-2">
                         {article.tags.map((tag, i) => (
-                          <span
-                            key={i}
+                          <span 
+                            key={i} 
                             className="flex items-center text-xs px-2 py-1 rounded-md bg-terminal-background border border-terminal-accent/40 text-terminal-accent"
                           >
                             <Tag size={12} className="mr-1" />
@@ -131,7 +124,7 @@ const Articles = () => {
                   </div>
                 ))}
               </div>
-
+              
               <div className="mt-8 pt-4 border-t border-terminal-accent/20 text-center">
                 <p className="text-terminal-muted text-sm">
                   Run 'article --read [title]' for full content
@@ -141,7 +134,7 @@ const Articles = () => {
           </div>
         </div>
       </main>
-
+      
       {/* Social Media Links */}
       <footer className="bg-[#2D2D2D]/50 border-t border-terminal-accent/20 py-6">
         <div className="container mx-auto px-4">

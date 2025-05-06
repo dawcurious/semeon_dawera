@@ -10,29 +10,17 @@ export const roleConfig = {
     description: 'Specializing in data pipelines, ETL processes, and data warehousing',
   },
   fse: {
-    title: 'Full Stack Web Engineer',
-    description: 'Building end-to-end web applications with modern frameworks and technologies',
-  },
-  bi: {
-    title: 'BI Engineer',
-    description: 'Creating business intelligence solutions and data visualizations for decision-making',
-  },
-  da: {
-    title: 'Data Analyst',
-    description: 'Analyzing data to provide insights and support business decisions',
-  },
-  ad: {
-    title: 'Data Architect',
-    description: 'Designing and implementing enterprise data management systems and infrastructure',
+    title: 'Fullstack Software Engineer',
+    description: 'Crafting responsive and intuitive user interfaces with modern web technologies',
   },
 };
 
 const RoleLayout = () => {
-  const { role } = useParams<{ role: 'sde' | 'fse' | 'bi' | 'da' | 'ad' }>();
+  const { role } = useParams<{ role: 'sde' | 'fse' }>();
   const { setCurrentRole } = useRole();
 
   useEffect(() => {
-    if (role && (role === 'sde' || role === 'fse' || role === 'bi' || role === 'da' || role === 'ad')) {
+    if (role && (role === 'sde' || role === 'fse')) {
       setCurrentRole(role);
     }
   }, [role, setCurrentRole]);
