@@ -7,12 +7,15 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Index from "./pages/Index";
 import Experience from "./pages/Experience";
 import Projects from "./pages/Projects";
+import ProjectDetail from "./pages/ProjectDetail";
+import Articles from "./pages/Articles";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
 import RoleLayout from "./components/RoleLayout";
 import RoleIndex from "./pages/role/RoleIndex";
 import RoleExperience from "./pages/role/RoleExperience";
 import RoleProjects from "./pages/role/RoleProjects";
+import RoleArticles from "./pages/role/RoleArticles";
 import RoleContact from "./pages/role/RoleContact";
 import { RoleProvider } from "./contexts/RoleContext";
 
@@ -30,6 +33,8 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/experience" element={<Experience />} />
             <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:projectId" element={<ProjectDetail />} />
+            <Route path="/articles" element={<Articles />} />
             <Route path="/contact" element={<Contact />} />
 
             {/* Role-specific routes */}
@@ -37,6 +42,7 @@ const App = () => (
               <Route index element={<RoleIndex />} />
               <Route path="experience" element={<RoleExperience />} />
               <Route path="projects" element={<RoleProjects />} />
+              <Route path="articles" element={<RoleArticles />} />
               <Route path="contact" element={<RoleContact />} />
             </Route>
 

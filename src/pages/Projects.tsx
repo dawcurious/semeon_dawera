@@ -2,40 +2,21 @@
 import { useState, useEffect } from "react";
 import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
-import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
+import { ExternalLink, ArrowUpRight } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Projects = () => {
   const [showContent, setShowContent] = useState(false);
-  
-  // Sample projects data
+
+  // Projects data
   const projects = [
     {
-      title: "DataFlow Engine",
-      description: "High-performance ETL system built with Python and SQL",
-      tags: ["SQL", "Python", "AWS", "ETL"],
+      title: "From Checkout to Chart: Real-Time Retail Analytics",
+      description: "A real-time data pipeline for retail analytics using Kafka, BigQuery & Looker Studio",
+      tags: ["Kafka", "BigQuery", "Looker Studio", "Debezium", "Real-time"],
       link: "#",
-      repo: "#"
-    },
-    {
-      title: "SQL Query Optimizer",
-      description: "Tool for automatically optimizing complex SQL queries for better performance",
-      tags: ["SQL", "Optimization", "Database", "Performance"],
-      link: "#",
-      repo: "#"
-    },
-    {
-      title: "Real-time Analytics Dashboard",
-      description: "Dashboard for visualizing streaming data using modern web technologies",
-      tags: ["SQL", "React", "Streaming", "Visualization"],
-      link: "#",
-      repo: "#"
-    },
-    {
-      title: "Database Migration Tool",
-      description: "Utility for seamlessly migrating between different database systems",
-      tags: ["SQL", "Migration", "Databases", "CLI"],
-      link: "#",
-      repo: "#"
+      repo: "#",
+      featured: true
     }
   ];
 
@@ -43,14 +24,14 @@ const Projects = () => {
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <div className="min-h-screen flex flex-col bg-terminal-background text-terminal-foreground">
       <TerminalHeader />
-      
+
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="w-full max-w-4xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
@@ -69,8 +50,8 @@ const Projects = () => {
           <div className="terminal-container p-6 md:p-8">
             <div className="mb-8">
               <h1 className="text-3xl font-bold text-terminal-accent mb-2">
-                <TerminalPrompt 
-                  text="$ ls -la projects/" 
+                <TerminalPrompt
+                  text="$ ls -la projects/"
                   className="text-terminal-accent-alt text-lg mb-3"
                 />
                 <div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
@@ -81,10 +62,10 @@ const Projects = () => {
                 A showcase of my technical work and achievements
               </p>
             </div>
-            
+
             <div className="grid md:grid-cols-2 gap-6 mt-10">
               {showContent && projects.map((project, index) => (
-                <div 
+                <div
                   key={index}
                   className="terminal-container border-terminal-accent/30 hover:border-terminal-accent transition-all duration-300 animate-fadeIn"
                   style={{ animationDelay: `${index * 150}ms` }}
@@ -97,8 +78,8 @@ const Projects = () => {
                   </p>
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.tags.map((tag, i) => (
-                      <span 
-                        key={i} 
+                      <span
+                        key={i}
                         className="text-xs px-2 py-1 rounded-md bg-terminal-background border border-terminal-accent/40 text-terminal-accent"
                       >
                         {tag}
@@ -106,7 +87,15 @@ const Projects = () => {
                     ))}
                   </div>
                   <div className="flex space-x-4 mt-auto pt-2">
-                    <a 
+                    <Link
+                      to="/projects/from-checkout-to-chart"
+                      className="text-terminal-accent relative group overflow-hidden inline-flex items-center text-sm"
+                    >
+                      <span className="pr-6 relative z-10 group-hover:translate-x-[-2px] transition-transform">Details</span>
+                      <span className="absolute inset-0 z-0 bg-terminal-accent/10 scale-x-0 origin-left group-hover:scale-x-100 transition-transform"></span>
+                      <ArrowUpRight size={14} className="absolute right-1 z-10 group-hover:translate-x-1 transition-transform" />
+                    </Link>
+                    <a
                       href={project.link}
                       className="text-terminal-accent relative group overflow-hidden inline-flex items-center text-sm"
                     >
@@ -114,19 +103,11 @@ const Projects = () => {
                       <span className="absolute inset-0 z-0 bg-terminal-accent/10 scale-x-0 origin-left group-hover:scale-x-100 transition-transform"></span>
                       <ExternalLink size={14} className="absolute right-1 z-10 group-hover:translate-x-1 transition-transform" />
                     </a>
-                    <a 
-                      href={project.repo}
-                      className="text-terminal-accent relative group overflow-hidden inline-flex items-center text-sm"
-                    >
-                      <span className="pr-6 relative z-10 group-hover:translate-x-[-2px] transition-transform">Code</span>
-                      <span className="absolute inset-0 z-0 bg-terminal-accent/10 scale-x-0 origin-left group-hover:scale-x-100 transition-transform"></span>
-                      <Github size={14} className="absolute right-1 z-10 group-hover:translate-x-1 transition-transform" />
-                    </a>
                   </div>
                 </div>
               ))}
             </div>
-            
+
             <div className="mt-8 pt-4 border-t border-terminal-accent/20 text-center">
               <p className="text-terminal-muted text-sm relative inline-block group cursor-pointer">
                 <span className="text-terminal-accent-alt pr-5">Run 'project --detail [name]' for more information</span>

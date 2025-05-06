@@ -58,6 +58,9 @@ const TerminalHeader = () => {
               <Link to={`/${activeRole}/projects`} className="menu-item inline-block">
                 Projects
               </Link>
+              <Link to={`/${activeRole}/articles`} className="menu-item inline-block">
+                Articles
+              </Link>
               <Link to={`/${activeRole}/contact`} className="menu-item inline-block">
                 Contact
               </Link>
@@ -70,6 +73,9 @@ const TerminalHeader = () => {
               </Link>
               <Link to="/projects" className="menu-item inline-block">
                 Projects
+              </Link>
+              <Link to="/articles" className="menu-item inline-block">
+                Articles
               </Link>
               <Link to="/contact" className="menu-item inline-block">
                 Contact
@@ -114,6 +120,13 @@ const TerminalHeader = () => {
                   Projects
                 </Link>
                 <Link
+                  to={`/${activeRole}/articles`}
+                  className="menu-item text-xl"
+                  onClick={toggleMenu}
+                >
+                  Articles
+                </Link>
+                <Link
                   to={`/${activeRole}/contact`}
                   className="menu-item text-xl"
                   onClick={toggleMenu}
@@ -137,6 +150,13 @@ const TerminalHeader = () => {
                   onClick={toggleMenu}
                 >
                   Projects
+                </Link>
+                <Link
+                  to="/articles"
+                  className="menu-item text-xl"
+                  onClick={toggleMenu}
+                >
+                  Articles
                 </Link>
                 <Link
                   to="/contact"

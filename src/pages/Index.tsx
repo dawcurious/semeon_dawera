@@ -91,9 +91,9 @@ const Index = () => {
 
   // Featured project
   const featuredProject = {
-    name: "From Checkout to Chart",
+    name: "Real-Time Retail Analytics with Kafka, BigQuery & Looker Studio",
     description:
-      "Real-Time Retail Analytics with Kafka, BigQuery & Looker Studio",
+      "From Checkout to Chart",
     icon: <FileCode className="text-green-400" />,
     color: "bg-zinc-900 border-green-500/30",
     tags: ["Python", "AWS", "ETL"],
@@ -167,26 +167,26 @@ const Index = () => {
 
                       {showTitle && (
                         <div className="bg-[#1A1F2C]/40 p-4 rounded-lg backdrop-blur-sm">
-                          <pre className="text-[8px] md:text-xs text-white">
-                            <TerminalPrompt
-                              text={`
-░██████╗███████╗███╗░░░███╗███████╗░█████╗░███╗░░██╗
-██╔════╝██╔════╝████╗░████║██╔════╝██╔══██╗████╗░██║
-╚█████╗░█████╗░░██╔████╔██║█████╗░░██║░░██║██╔██╗██║
-░╚═══██╗██╔══╝░░██║╚██╔╝██║██╔══╝░░██║░░██║██║╚████║
-██████╔╝███████╗██║░╚═╝░██║███████╗╚█████╔╝██║░╚███║
-╚═════╝░╚══════╝╚═╝░░░░░╚═╝╚══════╝░╚════╝░╚═╝░░╚══╝`}
-                              typingDelay={0}
-                              showCursor={false}
-                              onComplete={() => setShowSubtitle(true)}
-                            />
+                          <pre className="text-[7px]  text-white">
+                          <TerminalPrompt
+                          text={`
+░██████╗███████╗███╗░░░███╗███████╗░█████╗░███╗░░██╗  ██████╗░░█████╗░░██╗░░░░░░░██╗███████╗██████╗░░█████╗░
+██╔════╝██╔════╝████╗░████║██╔════╝██╔══██╗████╗░██║  ██╔══██╗██╔══██╗░██║░░██╗░░██║██╔════╝██╔══██╗██╔══██╗
+╚█████╗░█████╗░░██╔████╔██║█████╗░░██║░░██║██╔██╗██║  ██║░░██║███████║░╚██╗████╗██╔╝█████╗░░██████╔╝███████║
+░╚═══██╗██╔══╝░░██║╚██╔╝██║██╔══╝░░██║░░██║██║╚████║  ██║░░██║██╔══██║░░████╔═████║░██╔══╝░░██╔══██╗██╔══██║
+██████╔╝███████╗██║░╚═╝░██║███████╗╚█████╔╝██║░╚███║  ██████╔╝██║░░██║░░╚██╔╝░╚██╔╝░███████╗██║░░██║██║░░██║
+╚═════╝░╚══════╝╚═╝░░░░░╚═╝╚══════╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝`}
+                          typingDelay={0}
+                          showCursor={false}
+                          onComplete={() => setShowSubtitle(true)}
+                        />
                           </pre>
                         </div>
                       )}
 
                       {showSubtitle && (
                         <>
-                          <h2 className="text-xl md:text-2xl lg:text-6xl text-terminal-foreground/80 mt-4 animate-fadeIn">
+                          <h2 className="text-xl md:text-2xl lg:text-4xl text-terminal-foreground/80 mt-4 animate-fadeIn">
                             <TerminalPrompt
                               text="Senior Data Engineer"
                               typingDelay={50}
@@ -240,7 +240,7 @@ const Index = () => {
                           <HoverCard>
                             <HoverCardTrigger asChild>
                               <div
-                                className={`${cert.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
+                                className={`${cert.color} z-50 p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
                               >
                                 <div className="flex-shrink-0 text-terminal-accent p-2 bg-[#1A1F2C]/40 rounded-full">
                                   {cert.icon}
@@ -261,21 +261,6 @@ const Index = () => {
                                 </Badge>
                               </div>
                             </HoverCardTrigger>
-                            <HoverCardContent className="w-80 bg-[#1A1F2C] border border-terminal-accent/20 text-terminal-foreground p-4 shadow-xl">
-                              <div className="flex justify-between space-x-4">
-                                <div className="space-y-1">
-                                  <h4 className="text-sm font-semibold text-terminal-accent">
-                                    {cert.name}
-                                  </h4>
-                                  <div className="text-xs text-terminal-foreground/70">
-                                    <p>Active & Validated</p>
-                                    <p className="text-terminal-accent-alt font-mono mt-2 p-1 bg-[#121212] rounded-sm">
-                                      $ show certificate --id=sec_19a84f
-                                    </p>
-                                  </div>
-                                </div>
-                              </div>
-                            </HoverCardContent>
                           </HoverCard>
                         </div>
                       ))}
