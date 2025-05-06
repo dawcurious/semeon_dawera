@@ -1,18 +1,36 @@
-
 import { useState, useEffect } from "react";
 import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
 import TerminalMenu from "@/components/TerminalMenu";
 import { Link } from "react-router-dom";
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
-import { Terminal, Cloud, Shield, FileCode, Book, Calendar, Briefcase } from "lucide-react"; 
+import {
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
+} from "@/components/ui/tooltip";
+import {
+  Terminal,
+  Cloud,
+  Shield,
+  FileCode,
+  Book,
+  Calendar,
+  Briefcase,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { 
+import {
   HoverCard,
   HoverCardContent,
   HoverCardTrigger,
 } from "@/components/ui/hover-card";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 
 const Index = () => {
   const [showTitle, setShowTitle] = useState(false);
@@ -38,45 +56,47 @@ const Index = () => {
   ];
 
   const certifications = [
-    { 
-      name: "AWS Certified Data Engineer", 
+    {
+      name: "AWS Certified Data Engineer",
       icon: <Cloud className="text-amber-400" />,
-      color: "bg-zinc-900 border-amber-500/30" 
+      color: "bg-zinc-900 border-amber-500/30",
     },
-    { 
-      name: "AWS Certified Solutions Architect", 
+    {
+      name: "AWS Certified Solutions Architect",
       icon: <Cloud className="text-amber-400" />,
-      color: "bg-zinc-900 border-amber-500/30"
+      color: "bg-zinc-900 border-amber-500/30",
     },
-    { 
-      name: "GCP Professional Data Engineer", 
+    {
+      name: "GCP Professional Data Engineer",
       icon: <Terminal className="text-blue-400" />,
-      color: "bg-zinc-900 border-blue-500/30"
+      color: "bg-zinc-900 border-blue-500/30",
     },
-    { 
-      name: "GCP Associate Cloud Engineer", 
+    {
+      name: "GCP Associate Cloud Engineer",
       icon: <Terminal className="text-blue-400" />,
-      color: "bg-zinc-900 border-blue-500/30"
-    }
+      color: "bg-zinc-900 border-blue-500/30",
+    },
   ];
 
   // Latest experience
   const lastExperience = {
-    company: "DataStream Technologies",
+    company: "Google (Mandiant Cybersecurity)",
     position: "Senior Data Engineer",
-    period: "2020 - Present",
+    period: "September 2021 - Present",
     icon: <Briefcase className="text-green-400" />,
     color: "bg-zinc-900 border-green-500/30",
-    description: "Leading ETL pipeline development and optimization for enterprise data solutions",
+    description:
+      "Developed internal data pipelines for automating cybersecurity client onboarding workflows using AWS Databrew, reducing onboarding time by 40%. ",
   };
 
   // Featured project
   const featuredProject = {
-    name: "DataFlow Engine",
-    description: "High-performance ETL system for enterprise data processing with automated validation and monitoring",
+    name: "From Checkout to Chart",
+    description:
+      "Real-Time Retail Analytics with Kafka, BigQuery & Looker Studio",
     icon: <FileCode className="text-green-400" />,
     color: "bg-zinc-900 border-green-500/30",
-    tags: ["Python", "AWS", "ETL"]
+    tags: ["Python", "AWS", "ETL"],
   };
 
   useEffect(() => {
@@ -94,15 +114,15 @@ const Index = () => {
       const certTimer = setTimeout(() => {
         setShowCerts(true);
       }, 800);
-      
+
       const expTimer = setTimeout(() => {
         setShowExperience(true);
       }, 1200);
-      
+
       const projectTimer = setTimeout(() => {
         setShowProjects(true);
       }, 1600);
-      
+
       return () => {
         clearTimeout(certTimer);
         clearTimeout(expTimer);
@@ -168,7 +188,7 @@ const Index = () => {
                         <>
                           <h2 className="text-xl md:text-2xl lg:text-6xl text-terminal-foreground/80 mt-4 animate-fadeIn">
                             <TerminalPrompt
-                              text="semeon dawera"
+                              text="Senior Data Engineer"
                               typingDelay={50}
                               showCursor={false}
                               onComplete={() => setShowMenu(true)}
@@ -206,7 +226,9 @@ const Index = () => {
               {/* Certification Terminals */}
               {showCerts && (
                 <div>
-                  <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">$ certifications --list</h3>
+                  <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">
+                    $ certifications --list
+                  </h3>
                   <div className="space-y-4">
                     <TooltipProvider>
                       {certifications.map((cert, index) => (
@@ -217,15 +239,24 @@ const Index = () => {
                         >
                           <HoverCard>
                             <HoverCardTrigger asChild>
-                              <div className={`${cert.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}>
+                              <div
+                                className={`${cert.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
+                              >
                                 <div className="flex-shrink-0 text-terminal-accent p-2 bg-[#1A1F2C]/40 rounded-full">
                                   {cert.icon}
                                 </div>
                                 <div className="flex-1 text-sm text-terminal-foreground">
-                                  <span className="font-bold text-terminal-accent">{cert.name}</span>
-                                  <div className="text-xs text-terminal-foreground/70">$ certified --status=active</div>
+                                  <span className="font-bold text-terminal-accent">
+                                    {cert.name}
+                                  </span>
+                                  <div className="text-xs text-terminal-foreground/70">
+                                    $ certified --status=active
+                                  </div>
                                 </div>
-                                <Badge variant="outline" className="bg-terminal-background/50 text-terminal-accent text-xs">
+                                <Badge
+                                  variant="outline"
+                                  className="bg-terminal-background/50 text-terminal-accent text-xs"
+                                >
                                   <Shield size={10} className="mr-1" /> verified
                                 </Badge>
                               </div>
@@ -233,10 +264,14 @@ const Index = () => {
                             <HoverCardContent className="w-80 bg-[#1A1F2C] border border-terminal-accent/20 text-terminal-foreground p-4 shadow-xl">
                               <div className="flex justify-between space-x-4">
                                 <div className="space-y-1">
-                                  <h4 className="text-sm font-semibold text-terminal-accent">{cert.name}</h4>
+                                  <h4 className="text-sm font-semibold text-terminal-accent">
+                                    {cert.name}
+                                  </h4>
                                   <div className="text-xs text-terminal-foreground/70">
                                     <p>Active & Validated</p>
-                                    <p className="text-terminal-accent-alt font-mono mt-2 p-1 bg-[#121212] rounded-sm">$ show certificate --id=sec_19a84f</p>
+                                    <p className="text-terminal-accent-alt font-mono mt-2 p-1 bg-[#121212] rounded-sm">
+                                      $ show certificate --id=sec_19a84f
+                                    </p>
                                   </div>
                                 </div>
                               </div>
@@ -248,80 +283,118 @@ const Index = () => {
                   </div>
                 </div>
               )}
-              
+
               {/* Latest Experience */}
               {showExperience && (
                 <div>
-                  <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">$ last-experience --get</h3>
+                  <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">
+                    $ last-experience --get
+                  </h3>
                   <div className="animate-fadeIn">
                     <HoverCard>
                       <HoverCardTrigger asChild>
-                        <div className={`${lastExperience.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}>
+                        <div
+                          className={`${lastExperience.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
+                        >
                           <div className="flex-shrink-0 text-terminal-accent p-2 bg-[#1A1F2C]/40 rounded-full">
                             {lastExperience.icon}
                           </div>
                           <div className="flex-1 text-sm text-terminal-foreground">
-                            <span className="font-bold text-terminal-accent">{lastExperience.company}</span>
-                            <div className="text-xs text-terminal-foreground/70">{lastExperience.position}</div>
+                            <span className="font-bold text-terminal-accent">
+                              {lastExperience.company}
+                            </span>
+                            <div className="text-xs text-terminal-foreground/70">
+                              {lastExperience.position}
+                            </div>
                           </div>
-                          <Badge variant="outline" className="bg-terminal-background/50 text-terminal-accent-alt text-xs">
-                            <Calendar size={10} className="mr-1" /> {lastExperience.period}
+                          <Badge
+                            variant="outline"
+                            className="bg-terminal-background/50 text-terminal-accent-alt text-xs"
+                          >
+                            <Calendar size={10} className="mr-1" />{" "}
+                            {lastExperience.period}
                           </Badge>
                         </div>
                       </HoverCardTrigger>
                       <HoverCardContent className="w-80 bg-[#1A1F2C] border border-terminal-accent/20 text-terminal-foreground p-4 shadow-xl">
                         <div className="space-y-1">
-                          <h4 className="text-sm font-semibold text-terminal-accent">{lastExperience.company}</h4>
-                          <p className="text-xs font-medium text-terminal-accent-alt">{lastExperience.position}</p>
+                          <h4 className="text-sm font-semibold text-terminal-accent">
+                            {lastExperience.company}
+                          </h4>
+                          <p className="text-xs font-medium text-terminal-accent-alt">
+                            {lastExperience.position}
+                          </p>
                           <div className="text-xs text-terminal-foreground/70 mt-2">
                             <p>{lastExperience.description}</p>
-                            <p className="text-terminal-accent-alt font-mono mt-2 p-1 bg-[#121212] rounded-sm">$ show experience --company={lastExperience.company.toLowerCase().replace(/\s+/g, '-')}</p>
+                            <p className="text-terminal-accent-alt font-mono mt-2 p-1 bg-[#121212] rounded-sm">
+                              $ show experience --company=
+                              {lastExperience.company
+                                .toLowerCase()
+                                .replace(/\s+/g, "-")}
+                            </p>
                           </div>
                         </div>
                       </HoverCardContent>
                     </HoverCard>
                   </div>
                   <div className="mt-4 text-xs text-terminal-foreground/50 text-right">
-                    <Link to="/experience" className="text-terminal-accent-alt hover:underline">
+                    <Link
+                      to="/experience"
+                      className="text-terminal-accent-alt hover:underline"
+                    >
                       $ view --all-experience
                     </Link>
+                  </div>
+                  <div
+                    className="w-full animate-fadeIn"
+                    style={{ animationDelay: "900ms" }}
+                  >
+                    <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">
+                      $ featured-project --get
+                    </h3>
+                    <Card
+                      className={`${featuredProject.color} border border-terminal-accent/20 bg-zinc-900/80 shadow-xl hover:shadow-terminal-accent/10 transition-all duration-300`}
+                    >
+                      <CardHeader className="flex flex-row items-center gap-4">
+                        <div className="flex-shrink-0 text-terminal-accent p-3 bg-[#1A1F2C]/40 rounded-full">
+                          {featuredProject.icon}
+                        </div>
+                        <div>
+                          <CardTitle className="text-terminal-accent text-xl">
+                            {featuredProject.name}
+                          </CardTitle>
+                          <CardDescription className="text-terminal-foreground/70">
+                            {featuredProject.description}
+                          </CardDescription>
+                        </div>
+                      </CardHeader>
+                      <CardContent>
+                        <div className="flex flex-wrap gap-2 mt-2">
+                          {featuredProject.tags.map((tag, i) => (
+                            <Badge
+                              key={i}
+                              variant="outline"
+                              className="bg-terminal-background/50 text-terminal-accent-alt text-xs"
+                            >
+                              {tag}
+                            </Badge>
+                          ))}
+                        </div>
+                        <div className="mt-6 text-xs text-terminal-foreground/50 text-right">
+                          <Link
+                            to="/projects"
+                            className="text-terminal-accent-alt hover:underline"
+                          >
+                            $ view --project-details
+                          </Link>
+                        </div>
+                      </CardContent>
+                    </Card>
                   </div>
                 </div>
               )}
             </div>
           </div>
-          
-          {/* Bottom Featured Project */}
-          {showProjects && (
-            <div className="w-full animate-fadeIn" style={{ animationDelay: "900ms" }}>
-              <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">$ featured-project --get</h3>
-              <Card className={`${featuredProject.color} border border-terminal-accent/20 bg-zinc-900/80 shadow-xl hover:shadow-terminal-accent/10 transition-all duration-300`}>
-                <CardHeader className="flex flex-row items-center gap-4">
-                  <div className="flex-shrink-0 text-terminal-accent p-3 bg-[#1A1F2C]/40 rounded-full">
-                    {featuredProject.icon}
-                  </div>
-                  <div>
-                    <CardTitle className="text-terminal-accent text-xl">{featuredProject.name}</CardTitle>
-                    <CardDescription className="text-terminal-foreground/70">{featuredProject.description}</CardDescription>
-                  </div>
-                </CardHeader>
-                <CardContent>
-                  <div className="flex flex-wrap gap-2 mt-2">
-                    {featuredProject.tags.map((tag, i) => (
-                      <Badge key={i} variant="outline" className="bg-terminal-background/50 text-terminal-accent-alt text-xs">
-                        {tag}
-                      </Badge>
-                    ))}
-                  </div>
-                  <div className="mt-6 text-xs text-terminal-foreground/50 text-right">
-                    <Link to="/projects" className="text-terminal-accent-alt hover:underline">
-                      $ view --project-details
-                    </Link>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
-          )}
         </div>
       </main>
     </div>
