@@ -164,7 +164,7 @@ const TerminalHeader = () => {
                 className="bg-terminal-accent text-terminal-background hover:bg-terminal-accent-alt w-full"
                 onClick={() => {
                   window.location.href = isRoleRoute ? `/${activeRole}/contact` : '/contact';
-                  toggleMenu(); // Close the menu after clicking
+                  toggleMenu();
                 }}
               >
                 <Mail className="mr-2 h-4 w-4" /> Contact Me

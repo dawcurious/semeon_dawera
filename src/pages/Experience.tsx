@@ -20,8 +20,8 @@ const Experience = () => {
         "Analyzed and identified anomalies in Incident Response (IR) logs using Machine Learning (ML).",
         "Created Pyspark framework for data transformations according to Mandiant's specifications.",
         "Automated data transformation deployments with Jenkins and Docker.",
-        "Integrated Managed Defense data using Google's internal ETL tool."
-      ]
+        "Integrated Managed Defense data using Google's internal ETL tool.",
+      ],
     },
     {
       title: "Data Engineer Consulting",
@@ -32,8 +32,8 @@ const Experience = () => {
         "CI/CD automation via Jenkins to help with migration to Airflow 2",
         "Created Airflow 2 operators and modules to be shared across 60+ engineers",
         "Led a new project to stream retail sales transactional data using MySQL with CDC (Change Data Capture), Kafka and BigQuery",
-        "Helped troubleshoot failing Airflow Dags and worked with DevOps on release steps"
-      ]
+        "Helped troubleshoot failing Airflow Dags and worked with DevOps on release steps",
+      ],
     },
     {
       title: "Senior Data Engineer/ BI Developer",
@@ -44,8 +44,8 @@ const Experience = () => {
         "Designed Tableau dashboards to track core KPI's like Attendance and Assignment",
         "Wrote Salesforce SOQL queries then created data pipeline to run those queries via simple_salesforce python package to incrementally pull 2U's Sales data to Snowflake",
         "Created and automated data pipeline to pull data from 2U's Student Portal using Apache Airflow",
-        "Created a data model to store student engagement and performance like Quiz and Test Scores, Course Completion Rate and GPA"
-      ]
+        "Created a data model to store student engagement and performance like Quiz and Test Scores, Course Completion Rate and GPA",
+      ],
     },
     {
       title: "Senior Data Engineer / BI Developer",
@@ -63,8 +63,8 @@ const Experience = () => {
         "Developed efficient Tableau and Qlik Sense reports for analysis.",
         "Created SQL reporting data layers with the help of views and stored procs.",
         "Managed data backups, AWS server setup, and ELK stack for dashboards.",
-        "Conducted Machine Learning analysis in Kibana for energy consumption predictions."
-      ]
+        "Conducted Machine Learning analysis in Kibana for energy consumption predictions.",
+      ],
     },
     {
       title: "Data Analyst",
@@ -85,9 +85,9 @@ const Experience = () => {
         "Analyzed ECS data and maintained data quality.",
         "Led data quality project for ECS business processes.",
         "Resolved database anomalies and facilitated changes.",
-        "Organized developer-analyst meetings for data quality assurance"
-      ]
-    }
+        "Organized developer-analyst meetings for data quality assurance",
+      ],
+    },
   ];
 
   useEffect(() => {
@@ -98,76 +98,90 @@ const Experience = () => {
     return () => clearTimeout(timer);
   }, []);
 
-return (
-  <div className="min-h-screen flex flex-col bg-terminal-background text-terminal-foreground">
-    <TerminalHeader />
+  return (
+    <div className="min-h-screen flex flex-col bg-terminal-background text-terminal-foreground">
+      <TerminalHeader />
 
-    <main className="flex-1 container mx-auto px-4 py-8">
-      <div className="w-full max-w-4xl mx-auto">
-        <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
-          {/* Terminal Title Bar */}
-          <div className="bg-[#2D2D2D] px-4 py-2 flex items-center">
-            <div className="flex space-x-2">
-              <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
-              <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
-            </div>
-            <div className="flex-1 text-center text-sm text-gray-400">
-              visitor@terminal ~ /experience
-            </div>
-          </div>
-
-          <div className="terminal-container p-6 md:p-8">
-            <div className="mb-8">
-              <h1 className="text-3xl font-bold text-terminal-accent mb-2">
-                <TerminalPrompt
-                  text="$ cat experience.md"
-                  className="text-terminal-accent-alt text-lg mb-3"
-                />
-                <div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-                  Career Experience
-                </div>
-              </h1>
-              <p className={`text-terminal-foreground/70 transition-opacity duration-500 delay-100 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
-                A timeline of my professional journey
-              </p>
+      <main className="flex-1 container mx-auto px-4 py-8">
+        <div className="w-full max-w-4xl mx-auto">
+          <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
+            {/* Terminal Title Bar */}
+            <div className="bg-gray-100 px-4 py-2 flex items-center">
+              <div className="flex space-x-2">
+                <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
+                <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
+              </div>
+              <div className="flex-1 text-center text-sm text-gray-500">
+                visitor@terminal ~ /experience
+              </div>
             </div>
 
-            <div className="space-y-8 mt-10">
-              {showContent && experiences.map((exp, index) => (
-                <div
-                  key={index}
-                  className={`border-l-2 border-terminal-accent pl-4 py-2 transition-all duration-500 animate-fadeIn`}
-                  style={{ animationDelay: `${index * 150}ms` }}
-                >
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
-                    <h3 className="text-xl font-semibold text-terminal-accent-alt">
-                      {exp.title} <span className="text-terminal-foreground/70">@ {exp.company}</span>
-                    </h3>
-                    <span className="text-sm text-terminal-muted">{exp.period}</span>
+            <div className="terminal-container p-6 md:p-8">
+              <div className="mb-8">
+                <h1 className="text-3xl font-bold text-terminal-accent mb-2">
+                  <TerminalPrompt
+                    text="$ cat experience.md"
+                    className="text-terminal-accent-alt text-lg mb-3"
+                  />
+                  <div
+                    className={`mt-4 transition-opacity duration-500 ${
+                      showContent ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
+                    Career Experience
                   </div>
-                  <ul className="list-disc list-inside text-terminal-foreground/90 mt-2 space-y-1">
-                    {exp.description.map((item, i) => (
-                      <li key={i} className="text-sm md:text-base">
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
+                </h1>
+                <p
+                  className={`text-terminal-foreground/70 transition-opacity duration-500 delay-100 ${
+                    showContent ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  A timeline of my professional journey
+                </p>
+              </div>
 
-            <div className="mt-8 pt-4 border-t border-terminal-accent/20 text-center">
-              <p className="text-terminal-muted text-sm">
-                Type 'help' for more commands or navigate using the menu
-              </p>
+              <div className="space-y-8 mt-10">
+                {showContent &&
+                  experiences.map((exp, index) => (
+                    <div
+                      key={index}
+                      className={`border-l-2 border-terminal-accent pl-4 py-2 transition-all duration-500 animate-fadeIn`}
+                      style={{ animationDelay: `${index * 150}ms` }}
+                    >
+                      <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
+                        <h3 className="text-xl font-semibold text-terminal-accent-alt">
+                          {exp.title}{" "}
+                          <span className="text-terminal-foreground/70">
+                            @ {exp.company}
+                          </span>
+                        </h3>
+                        <span className="text-sm text-terminal-muted">
+                          {exp.period}
+                        </span>
+                      </div>
+                      <ul className="list-disc list-inside text-terminal-foreground/90 mt-2 space-y-1">
+                        {exp.description.map((item, i) => (
+                          <li key={i} className="text-sm md:text-base">
+                            {item}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+              </div>
+
+              <div className="mt-8 pt-4 border-t border-terminal-accent/20 text-center">
+                <p className="text-terminal-muted text-sm">
+                  Type 'help' for more commands or navigate using the menu
+                </p>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </main>
-  </div>
-);
+      </main>
+    </div>
+  );
 };
 
 export default Experience;

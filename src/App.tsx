@@ -42,13 +42,22 @@ const App = () => (
             <Route path="/articles" element={<Articles />} />
             <Route path="/contact" element={<Contact />} />
 
+            {/* FSE specific routes */}
             <Route path="/fse" element={<FSEIndex />} />
             <Route path="/fse/experience" element={<FSEExperience />} />
             <Route path="/fse/projects" element={<FSEProjects />} />
+            <Route path="/fse/projects/:projectId" element={<FSEProjectDetail />} />
             <Route path="/fse/articles" element={<FSEArticles />} />
             <Route path="/fse/contact" element={<FSEContact />} />
 
-            {/* Redirects for specific roles (these are handled by the /:role route above) */}
+            {/* Role-specific routes using RoleLayout */}
+            <Route path="/:role" element={<RoleLayout />}>
+              <Route index element={<RoleIndex />} />
+              <Route path="experience" element={<RoleExperience />} />
+              <Route path="projects" element={<RoleProjects />} />
+              <Route path="articles" element={<RoleArticles />} />
+              <Route path="contact" element={<RoleContact />} />
+            </Route>
 
             {/* 404 route */}
             <Route path="*" element={<NotFound />} />

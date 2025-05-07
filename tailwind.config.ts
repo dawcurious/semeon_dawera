@@ -64,12 +64,12 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         terminal: {
-          background: "#121212",
-          foreground: "#f8f8f8",
-          accent: "#33ffaa",
-          "accent-alt": "#00a0ff",
-          purple: "#9966ff",
-          muted: "#555555",
+          background: "#ffffff",
+          foreground: "#333333",
+          accent: "#0099cc",
+          "accent-alt": "#3366ff",
+          purple: "#6633cc",
+          muted: "#666666",
         },
       },
       borderRadius: {

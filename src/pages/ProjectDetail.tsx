@@ -155,13 +155,13 @@ const ProjectDetail = () => {
         <main className="flex-1 container mx-auto px-4 py-8">
           <div className="w-full max-w-4xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
-              <div className="bg-[#2D2D2D] px-4 py-2 flex items-center">
+            <div className="bg-gray-100 px-4 py-2 flex items-center">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
                 </div>
-                <div className="flex-1 text-center text-sm text-gray-400">
+                <div className="flex-1 text-center text-sm text-gray-500">
                   visitor@terminal ~ /projects/not-found
                 </div>
               </div>

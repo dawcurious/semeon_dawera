@@ -59,22 +59,22 @@ const Index = () => {
     {
       name: "AWS Certified Data Engineer",
       icon: <Cloud className="text-amber-400" />,
-      color: "bg-zinc-900 border-amber-500/30",
+      color: "terminal-container border-amber-500/30",
     },
     {
       name: "AWS Certified Solutions Architect",
       icon: <Cloud className="text-amber-400" />,
-      color: "bg-zinc-900 border-amber-500/30",
+      color: "terminal-container border-amber-500/30",
     },
     {
       name: "GCP Professional Data Engineer",
       icon: <Terminal className="text-blue-400" />,
-      color: "bg-zinc-900 border-blue-500/30",
+      color: "terminal-container border-blue-500/30",
     },
     {
       name: "GCP Associate Cloud Engineer",
       icon: <Terminal className="text-blue-400" />,
-      color: "bg-zinc-900 border-blue-500/30",
+      color: "terminal-container border-blue-500/30",
     },
   ];
 
@@ -84,7 +84,7 @@ const Index = () => {
     position: "Senior Data Engineer",
     period: "September 2021 - Present",
     icon: <Briefcase className="text-green-400" />,
-    color: "bg-zinc-900 border-green-500/30",
+    color: "terminal-container border-green-500/30",
     description:
       "Developed internal data pipelines for automating cybersecurity client onboarding workflows using AWS Databrew, reducing onboarding time by 40%. ",
   };
@@ -94,7 +94,7 @@ const Index = () => {
     name: "Real-Time Retail Analytics with Kafka, BigQuery & Looker Studio",
     description: "From Checkout to Chart",
     icon: <FileCode className="text-green-400" />,
-    color: "bg-zinc-900 border-green-500/30",
+    color: "terminal-container border-green-500/30",
     tags: ["Python", "AWS", "ETL"],
   };
 
@@ -142,19 +142,19 @@ const Index = () => {
             <div className="w-full md:w-1/2">
               <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
                 {/* Terminal Title Bar */}
-                <div className="bg-[#2D2D2D] px-4 py-2 flex items-center">
+                <div className="bg-gray-100 px-4 py-2 flex items-center">
                   <div className="flex space-x-2">
                     <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
                     <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
                     <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
                   </div>
-                  <div className="flex-1 text-center text-sm text-gray-400">
+                  <div className="flex-1 text-center text-sm text-gray-500">
                     visitor@terminal ~ /portfolio
                   </div>
                 </div>
 
                 {/* Terminal Content */}
-                <div className="terminal-container min-h-[60vh] p-8 bg-gradient-to-b from-[#121212] to-[#1A1F2C]">
+                <div className="terminal-container min-h-[60vh] p-8 terminal-container">
                   <div className="space-y-6 w-full max-w-xl mx-auto relative">
                     <div className="mb-8">
                       <TerminalPrompt
@@ -165,7 +165,7 @@ const Index = () => {
                       />
 
                       {showTitle && (
-                        <div className="bg-[#1A1F2C]/40 p-4 rounded-lg backdrop-blur-sm">
+                        <div className=" p-4 rounded-lg backdrop-blur-sm">
                           <pre className="text-[7px]  text-white">
                             <TerminalPrompt
                               text={`
@@ -241,7 +241,7 @@ const Index = () => {
                               <div
                                 className={`${cert.color} z-50 p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
                               >
-                                <div className="flex-shrink-0 text-terminal-accent p-2 bg-[#1A1F2C]/40 rounded-full">
+                                <div className="flex-shrink-0 text-terminal-accent p-2  rounded-full">
                                   {cert.icon}
                                 </div>
                                 <div className="flex-1 text-sm text-terminal-foreground">
@@ -280,7 +280,7 @@ const Index = () => {
                         <div
                           className={`${lastExperience.color} p-3 rounded-lg shadow-lg border flex items-center gap-3 w-full relative group cursor-pointer transition-all duration-300 hover:shadow-terminal-accent/20 hover:translate-x-[-5px]`}
                         >
-                          <div className="flex-shrink-0 text-terminal-accent p-2 bg-[#1A1F2C]/40 rounded-full">
+                          <div className="flex-shrink-0 text-terminal-accent p-2  rounded-full">
                             {lastExperience.icon}
                           </div>
                           <div className="flex-1 text-sm text-terminal-foreground">
@@ -337,10 +337,10 @@ const Index = () => {
                       $ featured-project --get
                     </h3>
                     <Card
-                      className={`${featuredProject.color} border border-terminal-accent/20 bg-zinc-900/80 shadow-xl hover:shadow-terminal-accent/10 transition-all duration-300`}
+                      className={`${featuredProject.color} border border-terminal-accent/20 terminal-container/80 shadow-xl hover:shadow-terminal-accent/10 transition-all duration-300`}
                     >
                       <CardHeader className="flex flex-row items-center gap-4">
-                        <div className="flex-shrink-0 text-terminal-accent p-3 bg-[#1A1F2C]/40 rounded-full">
+                        <div className="flex-shrink-0 text-terminal-accent p-3  rounded-full">
                           {featuredProject.icon}
                         </div>
                         <div>

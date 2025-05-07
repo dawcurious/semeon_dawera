@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
-import { ArrowLeft, Calendar, Clock, Tag, ExternalLink, Github } from "lucide-react";
+import {
+  ArrowLeft,
+  Calendar,
+  Clock,
+  Tag,
+  ExternalLink,
+  Github,
+} from "lucide-react";
 import { Link, useParams } from "react-router-dom";
 
 // Project details data
@@ -130,21 +137,21 @@ Here's how we plan to expand:
 ## ✨ Final Thoughts
 
 This project showed how streaming technologies like Kafka and Debezium, combined with cloud-native analytics (BigQuery, Looker Studio), can transform transactional retail data into powerful business intelligence. From checkout to chart, we gave stakeholders real-time visibility into the pulse of their business.
-    `
-  }
+    `,
+  },
 };
 
 const ProjectDetail = () => {
   const [showContent, setShowContent] = useState(false);
   const { projectId } = useParams<{ projectId: string }>();
-  
+
   const project = projectId ? projectDetails[projectId] : null;
-  
+
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowContent(true);
     }, 500);
-    
+
     return () => clearTimeout(timer);
   }, []);
 
@@ -155,24 +162,32 @@ const ProjectDetail = () => {
         <main className="flex-1 container mx-auto px-4 py-8">
           <div className="w-full max-w-4xl mx-auto">
             <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
-              <div className="bg-[#2D2D2D] px-4 py-2 flex items-center">
+              <div className="bg-gray-100 px-4 py-2 flex items-center">
                 <div className="flex space-x-2">
                   <div className="w-3 h-3 rounded-full bg-[#FF5F56]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#FFBD2E]"></div>
                   <div className="w-3 h-3 rounded-full bg-[#27C93F]"></div>
                 </div>
-                <div className="flex-1 text-center text-sm text-gray-400">
+                <div className="flex-1 text-center text-sm text-gray-500">
                   visitor@terminal ~ /projects/not-found
                 </div>
               </div>
               <div className="terminal-container p-6 md:p-8">
-                <Link to="/projects" className="inline-flex items-center text-terminal-accent hover:text-terminal-accent-alt mb-6">
+                <Link
+                  to="/projects"
+                  className="inline-flex items-center text-terminal-accent hover:text-terminal-accent-alt mb-6"
+                >
                   <ArrowLeft size={16} className="mr-2" />
                   Back to Projects
                 </Link>
                 <div className="text-center py-12">
-                  <h1 className="text-3xl font-bold text-terminal-accent mb-4">Project Not Found</h1>
-                  <p className="text-terminal-foreground/70">The project you're looking for doesn't exist or has been moved.</p>
+                  <h1 className="text-3xl font-bold text-terminal-accent mb-4">
+                    Project Not Found
+                  </h1>
+                  <p className="text-terminal-foreground/70">
+                    The project you're looking for doesn't exist or has been
+                    moved.
+                  </p>
                 </div>
               </div>
             </div>
@@ -185,7 +200,7 @@ const ProjectDetail = () => {
   return (
     <div className="min-h-screen flex flex-col bg-terminal-background text-terminal-foreground">
       <TerminalHeader />
-      
+
       <main className="flex-1 container mx-auto px-4 py-8">
         <div className="w-full max-w-4xl mx-auto">
           <div className="rounded-lg overflow-hidden shadow-2xl border border-terminal-accent/20">
@@ -202,26 +217,41 @@ const ProjectDetail = () => {
             </div>
 
             <div className="terminal-container p-6 md:p-8">
-              <Link to="/projects" className="inline-flex items-center text-terminal-accent hover:text-terminal-accent-alt mb-6">
+              <Link
+                to="/projects"
+                className="inline-flex items-center text-terminal-accent hover:text-terminal-accent-alt mb-6"
+              >
                 <ArrowLeft size={16} className="mr-2" />
                 Back to Projects
               </Link>
-              
+
               <div className="mb-8">
                 <h1 className="text-3xl font-bold text-terminal-accent mb-2">
-                  <TerminalPrompt 
+                  <TerminalPrompt
                     text={`$ cat project_${projectId}.md`}
                     className="text-terminal-accent-alt text-lg mb-3"
                   />
-                  <div className={`mt-4 transition-opacity duration-500 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+                  <div
+                    className={`mt-4 transition-opacity duration-500 ${
+                      showContent ? "opacity-100" : "opacity-0"
+                    }`}
+                  >
                     {project.title}
                   </div>
                 </h1>
-                <p className={`text-terminal-foreground/70 transition-opacity duration-500 delay-100 ${showContent ? 'opacity-100' : 'opacity-0'}`}>
+                <p
+                  className={`text-terminal-foreground/70 transition-opacity duration-500 delay-100 ${
+                    showContent ? "opacity-100" : "opacity-0"
+                  }`}
+                >
                   {project.subtitle}
                 </p>
-                
-                <div className={`flex flex-wrap items-center text-sm text-terminal-foreground/60 mt-4 gap-4 ${showContent ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 delay-200`}>
+
+                <div
+                  className={`flex flex-wrap items-center text-sm text-terminal-foreground/60 mt-4 gap-4 ${
+                    showContent ? "opacity-100" : "opacity-0"
+                  } transition-opacity duration-500 delay-200`}
+                >
                   <div className="flex items-center">
                     <Calendar size={14} className="mr-1" />
                     <span>{project.date}</span>
@@ -231,11 +261,15 @@ const ProjectDetail = () => {
                     <span>{project.readTime}</span>
                   </div>
                 </div>
-                
-                <div className={`flex flex-wrap gap-2 mt-4 ${showContent ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 delay-300`}>
+
+                <div
+                  className={`flex flex-wrap gap-2 mt-4 ${
+                    showContent ? "opacity-100" : "opacity-0"
+                  } transition-opacity duration-500 delay-300`}
+                >
                   {project.tags.map((tag, i) => (
-                    <span 
-                      key={i} 
+                    <span
+                      key={i}
                       className="flex items-center text-xs px-2 py-1 rounded-md bg-terminal-background border border-terminal-accent/40 text-terminal-accent"
                     >
                       <Tag size={12} className="mr-1" />
@@ -243,15 +277,19 @@ const ProjectDetail = () => {
                     </span>
                   ))}
                 </div>
-                
-                <div className={`flex space-x-4 mt-4 ${showContent ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 delay-400`}>
-                  <a 
+
+                <div
+                  className={`flex space-x-4 mt-4 ${
+                    showContent ? "opacity-100" : "opacity-0"
+                  } transition-opacity duration-500 delay-400`}
+                >
+                  <a
                     href={project.link}
                     className="text-terminal-accent hover:text-terminal-accent-alt flex items-center text-sm"
                   >
                     <ExternalLink size={14} className="mr-1" /> Demo
                   </a>
-                  <a 
+                  <a
                     href={project.repo}
                     className="text-terminal-accent hover:text-terminal-accent-alt flex items-center text-sm"
                   >
@@ -259,9 +297,17 @@ const ProjectDetail = () => {
                   </a>
                 </div>
               </div>
-              
-              <div className={`prose prose-invert max-w-none mt-8 ${showContent ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500 delay-500`}>
-                <div dangerouslySetInnerHTML={{ __html: project.content.replace(/\n/g, '<br>') }} />
+
+              <div
+                className={`prose prose-invert max-w-none mt-8 ${
+                  showContent ? "opacity-100" : "opacity-0"
+                } transition-opacity duration-500 delay-500`}
+              >
+                <div
+                  dangerouslySetInnerHTML={{
+                    __html: project.content.replace(/\n/g, "<br>"),
+                  }}
+                />
               </div>
             </div>
           </div>
