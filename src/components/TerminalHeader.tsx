@@ -82,7 +82,7 @@ const TerminalHeader = () => {
             variant="outline"
             className="border-terminal-accent text-terminal-accent hover:bg-terminal-accent hover:text-terminal-background"
             size="sm"
-            onClick={() => window.open('/Semeon Dawera Senior Data Engineer.pdf', '_blank')}
+            onClick={() => window.open('/Semeon Dawera Full Stack Software Engineer.pdf', '_blank')}
           >
             <FileText className="mr-2 h-4 w-4" /> Resume
           </Button>
@@ -156,7 +156,7 @@ const TerminalHeader = () => {
               <Button
                 variant="outline"
                 className="border-terminal-accent text-terminal-accent hover:bg-terminal-accent hover:text-terminal-background w-full"
-                onClick={() => window.open('/Semeon Dawera Senior Data Engineer.pdf', '_blank')}
+                onClick={() => window.open(isRoleRoute ? '/Semeon Dawera 2025.pdf' : '/Semeon Dawera Senior Data Engineer.pdf', '_blank')}
               >
                 <FileText className="mr-2 h-4 w-4" /> Resume
               </Button>

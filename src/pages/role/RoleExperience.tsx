@@ -7,50 +7,92 @@ import { roleConfig } from "@/components/RoleLayout";
 const experienceData = {
   sde: [
     {
-      title: "Senior Data Engineer / Senior Full Stack Developer",
-      company: "Google (Mandiant Cybersecurity)",
-      period: "September 2021 – Present",
-      description: [
-        "Developed internal data pipelines for automating cybersecurity client onboarding workflows using AWS Databrew, reducing onboarding time by 40%. This included provisioning infrastructure for client-specific data ingestion and validation.",
-        "Engineered a threat analytics dashboard for incident response teams, built with React, Node.js, and Snowflake, to provide real-time visibility into threat detection logs across enterprise environments.",
-        "Designed and deployed full-stack security tooling for incident investigation using Flask/Django, with integration into Mandiant's proprietary data lake and internal policy engines.",
-        "Automated the streaming of security event logs from Amazon S3 to Snowflake via Snowpipes, and abstracted ingestion logic behind a secure, API-driven microservices layer.",
-        "Integrated SAML-based authentication and RBAC into internal security applications using Google Identity, ensuring compliance with SOC2 and ISO 27001 standards.",
-        "Led development of interactive dashboards for threat intelligence analysts using React and Power BI, combining historical attack data with real-time alerts from Mandiant's internal threat telemetry."
-      ]
-    },
-    {
-      title: "Senior Full Stack Developer / BI Developer",
-      company: "AtSite Inc. (InSite)",
-      period: "March 2017 – September 2021",
-      description: [
-        "Built an energy monitoring portal for commercial buildings using React, Node.js, and PostgreSQL, allowing users to visualize and compare real-time energy consumption by floor and system.",
-        "Developed ETL pipelines using Apache Airflow and Python to aggregate data from IoT-based energy meters and third-party APIs, improving reporting latency by 60%.",
-        "Designed interactive BI dashboards in Tableau for energy consultants to model HVAC efficiency, compare energy benchmarks, and identify cost-saving opportunities.",
-        "Created a self-service reporting UI where clients could generate energy audits, load curves, and hourly trend visualizations—backed by APIs built in Express.js.",
-        "Migrated legacy reporting systems to AWS (EC2, S3, Redshift), introducing autoscaling and failover support for critical infrastructure.",
-        "Led the development of an IoT device management system, monitoring thousands of sensors in real-time and visualizing device health metrics in a web-based UI."
-      ]
-    },
-    {
       title: "Senior Data Engineer",
-      company: "U.S. Department of Labor – Washington D.C.",
+      company: "Mandiant Cybersecurity (Acquired by Google)",
+      period: "January 2024 – Present",
+      description: [
+        "Built ETL pipelines using Apache Airflow, AWS Glue, and PySpark to ingest and transform massive volumes of cybersecurity telemetry for threat intelligence reporting",
+        "Developed data quality reports using Amazon Web Services (AWS) Databrew for Mandiant client onboarding, reducing onboarding time by 40%.",
+        "Collaborated with DevOps for deployment and troubleshooting of Google Cloud Platform (GCP) data systems.",
+        "Automated threat log imports from Amazon S3 to Snowflake tables using Snowpipes.",
+        "Extracted data from GCP BigQuery to generate IR billing reports.",
+        "Analyzed and identified anomalies in Incident Response (IR) logs using Machine Learning (ML).",
+        "Created Pyspark framework for data transformations according to Mandiant's specifications.",
+        "Automated data transformation deployments with Jenkins and Docker.",
+        "Integrated Managed Defense data using Google's internal ETL tool."
+      ]
+    },
+    {
+      title: "Data Engineer Consulting",
+      company: "Kohls",
+      period: "January 2024 - September 2024",
+      description: [
+        "Engineering the migration of Apache airflow 2 jobs to Apache Airflow 2",
+        "CI/CD automation via Jenkins to help with migration to Airflow 2",
+        "Created Airflow 2 operators and modules to be shared across 60+ engineers",
+        "Led a new project to stream retail sales transactional data using MySQL with CDC (Change Data Capture), Kafka and BigQuery",
+        "Helped troubleshoot failing Airflow Dags and worked with DevOps on release steps"
+      ]
+    },
+    {
+      title: "Senior Data Engineer/ BI Developer",
+      company: "Trilogy Education (Acquired by 2U)",
+      period: "September 2018 - January 2024",
+      description: [
+        "Wrote and automated multiple reporting SQL queries against snowflake database to generate student progress reports",
+        "Designed Tableau dashboards to track core KPI's like Attendance and Assignment",
+        "Wrote Salesforce SOQL queries then created data pipeline to run those queries via simple_salesforce python package to incrementally pull 2U's Sales data to Snowflake",
+        "Created and automated data pipeline to pull data from 2U's Student Portal using Apache Airflow",
+        "Created a data model to store student engagement and performance like Quiz and Test Scores, Course Completion Rate and GPA"
+      ]
+    },
+    {
+      title: "Senior Data Engineer / BI Developer",
+      company: "Atsite (moved to InSite)",
+      period: "March 2017 – August 2018",
+      description: [
+        "Automated data retrieval from Weather Underground REST APIs using Python",
+        "Built ETL pipelines using Airflow, Python, and Amazon Redshift to handle multi-tenant IoT sensor data from 50+ commercial buildings",
+        "Managed data integration using Apache Airflow for diverse sources into Amazon Redshift.",
+        "Automated IoT device data flow and optimized energy bill data handling.",
+        "Designed fault-tolerant Airflow ETL workflows for frequent data updates.",
+        "Engineered Python-based data pipelines for meter readings.",
+        "Conducted rigorous SQL testing for data quality.",
+        "Led the Unified Data Store project for data modeling.",
+        "Developed efficient Tableau and Qlik Sense reports for analysis.",
+        "Created SQL reporting data layers with the help of views and stored procs.",
+        "Managed data backups, AWS server setup, and ELK stack for dashboards.",
+        "Conducted Machine Learning analysis in Kibana for energy consumption predictions."
+      ]
+    },
+    {
+      title: "Data Analyst",
+      company: "U.S. Department of Labor",
       period: "November 2014 – February 2017",
       description: [
-        "Modernized legacy MS Access + VBA tools by building web-based data collection and reporting apps using HTML, CSS, JavaScript, and SQL Server, reducing reporting errors and centralizing data governance.",
-        "Created a secure, scheduled ETL workflow in Python to collect labor statistics from external APIs and load them into SQL Server, eliminating manual spreadsheet aggregation.",
-        "Developed internal portals to track workforce training outcomes, enabling departments to drill down into participant data and export performance metrics for federal oversight.",
-        "Refactored and optimized stored procedures and views across multiple SQL Server databases, improving execution time for mission-critical reports by 30%.",
-        "Migrated internal reporting databases to AWS RDS and set up cloud storage for archived datasets using S3, enhancing disaster recovery and long-term access.",
-        "Integrated charting libraries and dynamic UI features into dashboards for internal analysts to explore labor compliance trends, grant utilization, and performance benchmarks."
+        "Transformed VBA reports into SSRS reports with SQL.",
+        "Designed ETL processes for IBM DB2 to SQL Server data transfer.",
+        "Scripted DB2 table definitions for migration.",
+        "Led report development and data warehousing.",
+        "Adapted DB2 scripts to SQL Server.",
+        "Improved SQL Server database performance and queries.",
+        "Converted MS Access reports to SQL Server Reporting Services.",
+        "Translated MS Access Visual Basic code into T-SQL.",
+        "Explored NoSQL databases for large datasets.",
+        "Migrated SQL Server tables to AWS via Azure Migration Wizard.",
+        "Contributed to ICD10 modification in Java.",
+        "Analyzed ECS data and maintained data quality.",
+        "Led data quality project for ECS business processes.",
+        "Resolved database anomalies and facilitated changes.",
+        "Organized developer-analyst meetings for data quality assurance"
       ]
     }
   ],
   fse: [
     {
-      title: "Senior Full Stack Developer",
-      company: "Google (Mandiant Cybersecurity)",
-      period: "September 2021 – Present",
+      title: "Full Stack Developer",
+      company: "Mandiant Cybersecurity (Acquired by Google)",
+      period: "January 2024 – Present",
       description: [
         "Engineered a threat analytics dashboard for incident response teams, built with React, Node.js, and Snowflake, to provide real-time visibility into threat detection logs across enterprise environments.",
         "Designed and deployed full-stack security tooling for incident investigation using Flask/Django, with integration into Mandiant's proprietary data lake and internal policy engines.",
@@ -61,9 +103,33 @@ const experienceData = {
       ]
     },
     {
-      title: "Senior Full Stack Developer",
-      company: "AtSite Inc. (InSite)",
-      period: "March 2017 – September 2021",
+      title: "Full Stack Developer",
+      company: "Kohls",
+      period: "January 2024 - September 2024",
+      description: [
+        "Developed front-end components for retail analytics dashboards using React and TypeScript",
+        "Built RESTful APIs using Node.js to connect front-end applications with backend data services",
+        "Implemented responsive UI designs for mobile and desktop retail applications",
+        "Collaborated with UX designers to create intuitive user interfaces for retail data visualization",
+        "Integrated real-time data streams from Kafka into interactive web dashboards"
+      ]
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Trilogy Education (Acquired by 2U)",
+      period: "September 2018 - January 2024",
+      description: [
+        "Developed responsive web interfaces for educational platforms using React and Node.js",
+        "Created interactive dashboards for student progress tracking and performance visualization",
+        "Built RESTful APIs to connect front-end applications with backend data services",
+        "Implemented authentication and authorization systems for educational platforms",
+        "Designed and developed user interfaces for student engagement and learning management systems"
+      ]
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Atsite (moved to InSite)",
+      period: "March 2017 – August 2018",
       description: [
         "Built an energy monitoring portal for commercial buildings using React, Node.js, and PostgreSQL, allowing users to visualize and compare real-time energy consumption by floor and system.",
         "Created a self-service reporting UI where clients could generate energy audits, load curves, and hourly trend visualizations—backed by APIs built in Express.js.",
@@ -75,7 +141,7 @@ const experienceData = {
     },
     {
       title: "Web Developer",
-      company: "U.S. Department of Labor – Washington D.C.",
+      company: "U.S. Department of Labor",
       period: "November 2014 – February 2017",
       description: [
         "Modernized legacy MS Access + VBA tools by building web-based data collection and reporting apps using HTML, CSS, JavaScript, and SQL Server.",
@@ -90,8 +156,8 @@ const experienceData = {
   bi: [
     {
       title: "BI Developer",
-      company: "Google (Mandiant Cybersecurity)",
-      period: "September 2021 – Present",
+      company: "Mandiant Cybersecurity (Acquired by Google)",
+      period: "January 2024 – Present",
       description: [
         "Developed data quality reports using AWS Databrew for Mandiant client onboarding, reducing onboarding time by 40%.",
         "Created interactive dashboards in Power BI for threat intelligence analysts, combining historical attack data with real-time alerts.",
@@ -103,8 +169,32 @@ const experienceData = {
     },
     {
       title: "BI Developer",
-      company: "AtSite Inc. (InSite)",
-      period: "March 2017 – September 2021",
+      company: "Kohls",
+      period: "January 2024 - September 2024",
+      description: [
+        "Designed and implemented retail analytics dashboards using Power BI and Tableau",
+        "Created data models to analyze sales performance, inventory turnover, and customer behavior",
+        "Developed automated reporting solutions for retail executives and store managers",
+        "Built interactive visualizations to track key retail metrics and identify sales trends",
+        "Collaborated with data engineers to optimize data pipelines for business intelligence consumption"
+      ]
+    },
+    {
+      title: "BI Developer",
+      company: "Trilogy Education (Acquired by 2U)",
+      period: "September 2018 - January 2024",
+      description: [
+        "Wrote and automated multiple reporting SQL queries against snowflake database to generate student progress reports",
+        "Designed Tableau dashboards to track core KPI's like Attendance and Assignment",
+        "Created interactive visualizations for educational performance metrics and student engagement",
+        "Developed data models to analyze student performance and identify at-risk learners",
+        "Built executive dashboards showing program effectiveness and student outcomes"
+      ]
+    },
+    {
+      title: "BI Developer",
+      company: "Atsite (moved to InSite)",
+      period: "March 2017 – August 2018",
       description: [
         "Designed interactive BI dashboards in Tableau for energy consultants to model HVAC efficiency, compare energy benchmarks, and identify cost-saving opportunities.",
         "Created a self-service reporting system for clients to generate energy audits and consumption analytics.",
@@ -116,7 +206,7 @@ const experienceData = {
     },
     {
       title: "Data Analyst",
-      company: "U.S. Department of Labor – Washington D.C.",
+      company: "U.S. Department of Labor",
       period: "November 2014 – February 2017",
       description: [
         "Created a secure, scheduled ETL workflow to collect labor statistics from external APIs and load them into SQL Server for reporting.",

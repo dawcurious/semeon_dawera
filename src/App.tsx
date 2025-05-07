@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -10,6 +9,12 @@ import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
 import Articles from "./pages/Articles";
 import Contact from "./pages/Contact";
+import FSEIndex from "./pages/fse/Index";
+import FSEExperience from "./pages/fse/Experience";
+import FSEProjects from "./pages/fse/Projects";
+import FSEProjectDetail from "./pages/fse/ProjectDetail";
+import FSEArticles from "./pages/fse/Articles";
+import FSEContact from "./pages/fse/Contact";
 import NotFound from "./pages/NotFound";
 import RoleLayout from "./components/RoleLayout";
 import RoleIndex from "./pages/role/RoleIndex";
@@ -37,14 +42,11 @@ const App = () => (
             <Route path="/articles" element={<Articles />} />
             <Route path="/contact" element={<Contact />} />
 
-            {/* Role-specific routes */}
-            <Route path="/:role" element={<RoleLayout />}>
-              <Route index element={<RoleIndex />} />
-              <Route path="experience" element={<RoleExperience />} />
-              <Route path="projects" element={<RoleProjects />} />
-              <Route path="articles" element={<RoleArticles />} />
-              <Route path="contact" element={<RoleContact />} />
-            </Route>
+            <Route path="/fse" element={<FSEIndex />} />
+            <Route path="/fse/experience" element={<FSEExperience />} />
+            <Route path="/fse/projects" element={<FSEProjects />} />
+            <Route path="/fse/articles" element={<FSEArticles />} />
+            <Route path="/fse/contact" element={<FSEContact />} />
 
             {/* Redirects for specific roles (these are handled by the /:role route above) */}
 
