@@ -58,9 +58,7 @@ const TerminalHeader = () => {
               <Link to={`/${activeRole}/projects`} className="menu-item inline-block">
                 Projects
               </Link>
-              <Link to={`/${activeRole}/articles`} className="menu-item inline-block">
-                Articles
-              </Link>
+
               <Link to={`/${activeRole}/contact`} className="menu-item inline-block">
                 Contact
               </Link>
@@ -74,9 +72,7 @@ const TerminalHeader = () => {
               <Link to="/projects" className="menu-item inline-block">
                 Projects
               </Link>
-              <Link to="/articles" className="menu-item inline-block">
-                Articles
-              </Link>
+
               <Link to="/contact" className="menu-item inline-block">
                 Contact
               </Link>
@@ -86,12 +82,14 @@ const TerminalHeader = () => {
             variant="outline"
             className="border-terminal-accent text-terminal-accent hover:bg-terminal-accent hover:text-terminal-background"
             size="sm"
+            onClick={() => window.open('/Semeon Dawera Senior Data Engineer.pdf', '_blank')}
           >
             <FileText className="mr-2 h-4 w-4" /> Resume
           </Button>
           <Button
             className="bg-terminal-accent text-terminal-background hover:bg-terminal-accent-alt"
             size="sm"
+            onClick={() => window.location.href = isRoleRoute ? `/${activeRole}/contact` : '/contact'}
           >
             <Mail className="mr-2 h-4 w-4" /> Contact Me
           </Button>
@@ -119,13 +117,7 @@ const TerminalHeader = () => {
                 >
                   Projects
                 </Link>
-                <Link
-                  to={`/${activeRole}/articles`}
-                  className="menu-item text-xl"
-                  onClick={toggleMenu}
-                >
-                  Articles
-                </Link>
+
                 <Link
                   to={`/${activeRole}/contact`}
                   className="menu-item text-xl"
@@ -152,13 +144,6 @@ const TerminalHeader = () => {
                   Projects
                 </Link>
                 <Link
-                  to="/articles"
-                  className="menu-item text-xl"
-                  onClick={toggleMenu}
-                >
-                  Articles
-                </Link>
-                <Link
                   to="/contact"
                   className="menu-item text-xl"
                   onClick={toggleMenu}
@@ -171,11 +156,16 @@ const TerminalHeader = () => {
               <Button
                 variant="outline"
                 className="border-terminal-accent text-terminal-accent hover:bg-terminal-accent hover:text-terminal-background w-full"
+                onClick={() => window.open('/Semeon Dawera Senior Data Engineer.pdf', '_blank')}
               >
                 <FileText className="mr-2 h-4 w-4" /> Resume
               </Button>
               <Button
                 className="bg-terminal-accent text-terminal-background hover:bg-terminal-accent-alt w-full"
+                onClick={() => {
+                  window.location.href = isRoleRoute ? `/${activeRole}/contact` : '/contact';
+                  toggleMenu(); // Close the menu after clicking
+                }}
               >
                 <Mail className="mr-2 h-4 w-4" /> Contact Me
               </Button>

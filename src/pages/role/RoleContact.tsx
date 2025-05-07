@@ -7,37 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useRole } from "@/contexts/RoleContext";
 import { roleConfig } from "@/components/RoleLayout";
 
-// Role-specific experience data
-const experienceData = {
-  sde: [
-    {
-      company: "Google (Mandiant Cyber Security)",
-      period: "September 2021 - present",
-      title: "Senior Data Engineer",
-      responsibilities: [
-        "Developed data quality reports using AWS Databrew for Mandiant client onboarding, reducing onboarding time by 40%",
-        "Collaborated with DevOps for deployment and troubleshooting of GCP data systems",
-        "Automated threat log imports from Amazon S3 to Snowflake tables using Snowpipes",
-        "Extracted data from GCP BigQuery to generate IR billing reports",
-        "Analyzed and identified anomalies in IR logs using Machine Learning",
-      ],
-    },
-  ],
-  fse: [
-    {
-      company: "WebTech Solutions",
-      period: "2020 - Present",
-      title: "Fullstack Software Engineer",
-      responsibilities: [
-        "Led the development of responsive web applications using React and TypeScript",
-        "Implemented a component library that improved development speed by 30%",
-        "Optimized application performance and reduced load times by 35%",
-        "Collaborated with UX designers to create intuitive user interfaces",
-        "Mentored junior developers and conducted code reviews",
-      ],
-    },
-  ],
-};
+// No experience data as requested
 
 // Role-specific professional summaries
 const summaryData = {
