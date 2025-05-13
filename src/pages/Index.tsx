@@ -3,6 +3,7 @@ import TerminalHeader from "@/components/TerminalHeader";
 import TerminalPrompt from "@/components/TerminalPrompt";
 import TerminalMenu from "@/components/TerminalMenu";
 import { Link } from "react-router-dom";
+import { Mail, Github, Linkedin, Phone } from "lucide-react";
 import {
   Tooltip,
   TooltipContent,
@@ -42,41 +43,50 @@ const Index = () => {
   const [showExperience, setShowExperience] = useState(false);
 
   const menuItems = [
-    { label: "experience", path: "/experience", delay: 100 },
-    { label: "projects", path: "/projects", delay: 300 },
-    { label: "contact", path: "/contact", delay: 500 },
+    { label: "experience", path: "/experience", delay: 50 },
+    { label: "projects", path: "/projects", delay: 100 },
+    { label: "contact", path: "/contact", delay: 150 },
   ];
 
   const roleItems = [
-    { label: "senior data engineer", path: "/sde", delay: 100 },
-    { label: "full stack software engineer", path: "/fse", delay: 300 },
-    { label: "data analyst", path: "/da", delay: 100 },
-    { label: "data architect", path: "/ad", delay: 100 },
-    { label: "business intelligence analyst", path: "/bia", delay: 100 },
+    { label: "senior data engineer", path: "/sde", delay: 50 },
+    { label: "full stack software engineer", path: "/fse", delay: 100 },
+    { label: "data analyst", path: "/da", delay: 50 },
+    { label: "data architect", path: "/ad", delay: 50 },
+    { label: "business intelligence analyst", path: "/bia", delay: 50 },
   ];
 
   const certifications = [
     {
       name: "AWS Certified Data Engineer",
-      link: "https://cp.certmetrics.com/amazon/en/public/verify/credential/e7e05b306f584653bbb1ece71d03415e",
+      iconLink:
+        "https://images.credly.com/size/680x680/images/2d84e428-9078-49b6-a804-13c15383d0de/image.png",
+
+      link: "https://www.credly.com/badges/5c5d495a-bbcf-4597-85f5-d6d343e24c6b/public_url",
       icon: <Cloud className="text-amber-400" />,
       color: "terminal-container border-amber-500/30",
     },
     {
       name: "AWS Certified Solutions Architect",
-      link: "#",
+      iconLink:
+        "https://images.credly.com/size/680x680/images/0e284c3f-5164-4b21-8660-0d84737941bc/image.png",
+      link: "https://www.credly.com/badges/d9296dc7-ac7a-4186-9427-e2bad6aba69b/public_url",
       icon: <Cloud className="text-amber-400" />,
       color: "terminal-container border-amber-500/30",
     },
     {
       name: "GCP Professional Data Engineer",
       link: "#",
+      iconLink:
+        "https://images.credly.com/size/680x680/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png",
       icon: <Terminal className="text-blue-400" />,
       color: "terminal-container border-blue-500/30",
     },
     {
       name: "GCP Associate Cloud Engineer",
       link: "#",
+      iconLink:
+        "https://images.credly.com/size/680x680/images/08096465-cbfc-4c3e-93e5-93c5aa61f23e/image.png",
       icon: <Terminal className="text-blue-400" />,
       color: "terminal-container border-blue-500/30",
     },
@@ -103,36 +113,31 @@ const Index = () => {
   };
 
   useEffect(() => {
-    // Simulate terminal startup sequence
-    const timer = setTimeout(() => {
-      document.body.classList.add("loaded");
-    }, 500);
+    // Simulate terminal startup sequence - make it almost instant
+    document.body.classList.add("loaded");
 
-    return () => clearTimeout(timer);
+    // Show title immediately
+    setShowTitle(true);
+
+    // Show subtitle after a very short delay
+    const subtitleTimer = setTimeout(() => {
+      setShowSubtitle(true);
+    }, 50);
+
+    // Show menu and all other elements almost immediately
+    const menuTimer = setTimeout(() => {
+      setShowMenu(true);
+      setShowCerts(true);
+      setShowExperience(true);
+      setShowProjects(true);
+      setShowRoles(true);
+    }, 100);
+
+    return () => {
+      clearTimeout(subtitleTimer);
+      clearTimeout(menuTimer);
+    };
   }, []);
-
-  useEffect(() => {
-    // Show certifications, experience and projects with delays
-    if (showMenu) {
-      const certTimer = setTimeout(() => {
-        setShowCerts(true);
-      }, 800);
-
-      const expTimer = setTimeout(() => {
-        setShowExperience(true);
-      }, 1200);
-
-      const projectTimer = setTimeout(() => {
-        setShowProjects(true);
-      }, 1600);
-
-      return () => {
-        clearTimeout(certTimer);
-        clearTimeout(expTimer);
-        clearTimeout(projectTimer);
-      };
-    }
-  }, [showMenu]);
 
   return (
     <div className="min-h-screen flex flex-col bg-white text-gray-800">
@@ -181,7 +186,7 @@ const Index = () => {
 ╚═════╝░╚══════╝╚═╝░░░░░╚═╝╚══════╝░╚════╝░╚═╝░░╚══╝  ╚═════╝░╚═╝░░╚═╝░░░╚═╝░░░╚═╝░░╚══════╝╚═╝░░╚═╝╚═╝░░╚═╝`}
                               typingDelay={0}
                               showCursor={false}
-                              onComplete={() => setShowSubtitle(true)}
+                              onComplete={() => {}}
                             />
                           </pre>
                         </div>
@@ -192,19 +197,16 @@ const Index = () => {
                           <h2 className="text-xl md:text-2xl lg:text-4xl text-terminal-foreground/80 mt-4 animate-fadeIn">
                             <TerminalPrompt
                               text="Senior Data Engineer"
-                              typingDelay={50}
+                              typingDelay={0}
                               showCursor={false}
-                              onComplete={() => setShowMenu(true)}
+                              onComplete={() => {}}
                             />
                           </h2>
-                          <h2 className="text-xl md:text-2xl text-terminal-foreground/80 mt-2 animate-fadeIn">
+                          <h2 className="text-xl md:text-md text-terminal-foreground/80 mt-2 animate-fadeIn">
                             <TerminalPrompt
-                              text="portfolio"
-                              typingDelay={50}
-                              onComplete={() => {
-                                setShowMenu(true);
-                                setTimeout(() => setShowRoles(true), 1000);
-                              }}
+                              text="I specialize in creating data pipelines. My experience extends to cloud services, programming, databases, data modeling and Reporting with industry experience in Cybersecurity (Google Cloud), Retail (Kohls), Energy (AtSite) and Education (2U). "
+                              typingDelay={0}
+                              onComplete={() => {}}
                             />
                           </h2>
                         </>
@@ -219,6 +221,72 @@ const Index = () => {
                         <TerminalMenu items={menuItems} />
                       </div>
                     )}
+
+                    <div className={`space-y-8 `}>
+                      {/* Contact Information Card */}
+                      <Card className="bg-terminal-background border-terminal-accent/30">
+                        <CardContent className="space-y-4 pt-8">
+                          <div className="grid gap-4 md:grid-cols-2">
+                            <a
+                              href="tel:571-234-1672"
+                              className="flex items-center space-x-2 text-terminal-foreground hover:text-terminal-accent"
+                            >
+                              <Phone size={18} />
+                              <span>571-234-1672</span>
+                            </a>
+                            <a
+                              href="mailto:semeon.dawera@gmail.com"
+                              className="flex items-center space-x-2 text-terminal-foreground hover:text-terminal-accent"
+                            >
+                              <Mail size={18} />
+                              <span>semeon.dawera@gmail.com</span>
+                            </a>
+                            <a
+                              href="https://github.com/dawcurious"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center space-x-2 text-terminal-foreground hover:text-terminal-accent"
+                            >
+                              <Github size={18} />
+                              <span>GitHub Profile</span>
+                            </a>
+                            <a
+                              href="https://www.semeon.work/"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center space-x-2 text-terminal-foreground hover:text-terminal-accent"
+                            >
+                              <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                width="18"
+                                height="18"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                strokeWidth="2"
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                className="lucide lucide-globe"
+                              >
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <line x1="2" y1="12" x2="22" y2="12"></line>
+                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                              </svg>
+                              <span>www.semeon.work</span>
+                            </a>
+                            <a
+                              href="https://linkedin.com/in/semeondawera"
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex items-center space-x-2 text-terminal-foreground hover:text-terminal-accent"
+                            >
+                              <Linkedin size={18} />
+                              <span>LinkedIn Profile</span>
+                            </a>
+                          </div>
+                        </CardContent>
+                      </Card>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -238,7 +306,7 @@ const Index = () => {
                         <div
                           key={index}
                           className={`animate-fadeIn`}
-                          style={{ animationDelay: `${index * 200}ms` }}
+                          style={{ animationDelay: `${index * 50}ms` }}
                         >
                           <HoverCard>
                             <HoverCardTrigger asChild>
@@ -247,7 +315,7 @@ const Index = () => {
                                 onClick={() => window.open(cert.link, "_blank")}
                               >
                                 <div className="flex-shrink-0 text-terminal-accent p-2  rounded-full">
-                                  {cert.icon}
+                                  <img className="h-20" src={cert.iconLink} />
                                 </div>
                                 <div className="flex-1 text-sm text-terminal-foreground">
                                   <span className="font-bold text-terminal-accent">
@@ -336,7 +404,7 @@ const Index = () => {
                   </div>
                   <div
                     className="w-full animate-fadeIn"
-                    style={{ animationDelay: "900ms" }}
+                    style={{ animationDelay: "100ms" }}
                   >
                     <h3 className="text-terminal-accent-alt mb-4 font-mono text-sm">
                       $ featured-project --get

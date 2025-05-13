@@ -111,9 +111,9 @@ export default {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        blink: "blink 1s step-end infinite",
-        typewriter: "typewriter 2s steps(40, end)",
-        fadeIn: "fadeIn 0.5s ease-out forwards",
+        blink: "blink 0.7s step-end infinite",
+        typewriter: "typewriter 0.8s steps(40, end)",
+        fadeIn: "fadeIn 0.3s ease-out forwards",
         pulse: "pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite",
       },
     },

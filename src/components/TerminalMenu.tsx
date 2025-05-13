@@ -25,9 +25,9 @@ const TerminalMenu: React.FC<TerminalMenuProps> = ({ items, onMenuLoaded }) => {
 
         // If this is the last item, call the onMenuLoaded callback
         if (index === items.length - 1 && onMenuLoaded) {
-          setTimeout(onMenuLoaded, 300);
+          setTimeout(onMenuLoaded, 100); // Reduced from 300ms to 100ms
         }
-      }, item.delay);
+      }, item.delay / 2); // Cut the delay in half
 
       timers.push(timer);
     });
@@ -40,10 +40,10 @@ const TerminalMenu: React.FC<TerminalMenuProps> = ({ items, onMenuLoaded }) => {
       {items.map((item, index) => (
         <div
           key={item.path}
-          className={`transition-all duration-500 ${
+          className={`transition-all duration-200 ${
             visibleItems.includes(index)
-              ? "opacity-100 text-terminal-accent transform translate-y-4"
-              : "opacity-100 text-terminal-accent transform translate-y-4"
+              ? "opacity-100 text-terminal-accent transform translate-y-0"
+              : "opacity-0 text-terminal-accent transform translate-y-2"
           }`}
         >
           <Link to={item.path} className="menu-item text-lg md:text-xl">

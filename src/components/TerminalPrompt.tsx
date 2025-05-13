@@ -10,28 +10,25 @@ interface TerminalPromptProps {
 
 const TerminalPrompt: React.FC<TerminalPromptProps> = ({
   text,
-  typingDelay = 50,
+  typingDelay = 10,
   showCursor = true,
   className = "",
   onComplete,
 }) => {
   const [displayText, setDisplayText] = useState("");
-  const [currentIndex, setCurrentIndex] = useState(0);
   const [isTyping, setIsTyping] = useState(true);
 
   useEffect(() => {
-    if (currentIndex < text.length) {
-      const timeout = setTimeout(() => {
-        setDisplayText((prev) => prev + text[currentIndex]);
-        setCurrentIndex((prev) => prev + 1);
-      }, typingDelay);
-
-      return () => clearTimeout(timeout);
-    } else {
+    // Instead of typing character by character, display the entire text at once
+    // with just a small delay to simulate the appearance of typing
+    const timeout = setTimeout(() => {
+      setDisplayText(text);
       setIsTyping(false);
       if (onComplete) onComplete();
-    }
-  }, [currentIndex, text, typingDelay, onComplete]);
+    }, typingDelay);
+
+    return () => clearTimeout(timeout);
+  }, [text, typingDelay, onComplete]);
 
   return (
     <div className={`font-mono ${className}`}>

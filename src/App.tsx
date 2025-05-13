@@ -23,6 +23,7 @@ import RoleProjects from "./pages/role/RoleProjects";
 import RoleArticles from "./pages/role/RoleArticles";
 import RoleContact from "./pages/role/RoleContact";
 import { RoleProvider } from "./contexts/RoleContext";
+import SimpleParticlesBackground from "./components/SimpleParticlesBackground";
 
 const queryClient = new QueryClient();
 
@@ -33,6 +34,11 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          {/* Particles Background */}
+          <div className="relative z-0">
+            <SimpleParticlesBackground />
+          </div>
+
           <Routes>
             {/* Original routes */}
             <Route path="/" element={<Index />} />
