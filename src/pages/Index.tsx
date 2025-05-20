@@ -76,7 +76,7 @@ const Index = () => {
     },
     {
       name: "GCP Professional Data Engineer",
-      link: "#",
+      link: "https://www.credly.com/badges/fdbdbe4f-f083-4b49-8e35-f2d2e771af16/public_url",
       iconLink:
         "https://images.credly.com/size/680x680/images/2d613ff8-8879-430b-b2d8-925fa29785e8/image.png",
       icon: <Terminal className="text-blue-400" />,
